@@ -9,12 +9,12 @@ export class TestingService {
 
   constructor(private _http: Http) { }
 
-  gestPosts(a?: string){
+  getPosts(a?: string){
     return this._http.get(this.root + 'posts')
       .map(res => res.json());
   }
 
-  gestPost(a: string){
+  getPost(a: string){
     return this._http.get(this.root + 'posts/' + a)
       .map(res => res.json());
   }
