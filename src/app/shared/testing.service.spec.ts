@@ -50,21 +50,20 @@ describe('TestingService', () => {
       });
     }));
 
-  it('should return mocked response (async)', async(() => {
-    let post = {
-      'userId': 1,
-      'id': 1,
-      'title': 'Title 1',
-      'body': 'Body 1'
-    };
-    mock.connections.subscribe(connection => {
-      connection.mockRespond(new Response({body: JSON.stringify(post)}));
-    });
-    service.getPost(1).subscribe(x => {
+    it('should return mocked response (async)', async(() => {
+      let post = {
+        'userId': 1,
+        'id': 1,
+        'title': 'Title 1',
+        'body': 'Body 1'
+      };
+      mock.connections.subscribe(connection => {
+        connection.mockRespond(new Response({ body: JSON.stringify(post) }));
+      });
+      service.getPost(1).subscribe(x => {
         expect(x.title).toEqual('Title 1');
       });
-  }));
-})
-
+    }));
   });
+
 });
